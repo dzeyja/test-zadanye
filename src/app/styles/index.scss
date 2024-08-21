@@ -1,0 +1,7 @@
+@import './reset.scss';
+@import './variables/global.scss';
+
+.app {
+  font: var(--font-m);
+  color: var(--primary-color);
+}
