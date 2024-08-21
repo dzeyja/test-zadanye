@@ -1,0 +1,11 @@
+.Navbar {
+  height: var(--navbar-height);
+  font: var(--font-l);
+  width: 100%;
+  background-color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 1px 4px 6px -4px rgba(34, 60, 80, 0.2);
+}

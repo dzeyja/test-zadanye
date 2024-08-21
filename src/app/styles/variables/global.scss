@@ -10,8 +10,8 @@
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
 
   // Размеры
-  --navbar-height: 50px;
+  --navbar-height: 60px;
 
-  --sidebar-width: 300px;
-  --sidebar-width-collapsed: 80px;
+  // Тени
+  --card-post: 1px 1px 8px 3px rgba(34, 60, 80, 0.2);
 }
