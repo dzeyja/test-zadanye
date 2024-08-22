@@ -1,2 +1,30 @@
-.hello {
+.CardDetail {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.postContent {
+  display: flex;
+  margin-top: 20px;
+  gap: 30px;
+}
+
+.title {
+  font: var(--font-l);
+  margin: 15px 0 15px 0;
+}
+
+.img {
+  width: 300px;
+  height: 200px;
+  background-color: bisque;
+  border-radius: 10px;
+}
+
+.textContent {
+  width: 70%;
+}
+
+.fcLike {
+  font-size: 25px;
 }

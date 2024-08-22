@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react'
 import { fetchPosts } from '../api/postsActionCreator'
 import { useAppDispatch, useAppSelector } from 'app/stores/lib/reduxHooks'
 import { Pagination } from 'widgets/Pagination'
-import { start } from 'repl'
 
 interface MainPageProps {
   clasName?: string
@@ -25,7 +24,7 @@ export const MainPage = ({ clasName }: MainPageProps) => {
     <div className="container">
       <div className={classNames(cls.MainPage, {}, [clasName])}>
         {isLoading ? (
-          <div>Загрузка...</div>
+          <div className={cls.loader}>Загрузка...</div>
         ) : (
           <>
             <CardsList />

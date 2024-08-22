@@ -9,7 +9,7 @@ export enum AppRoutes {
 
 export const routePaths: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: '/',
-  [AppRoutes.CARDDETAIL]: 'cards',
+  [AppRoutes.CARDDETAIL]: '/posts/:id',
 }
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {

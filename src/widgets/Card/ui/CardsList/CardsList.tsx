@@ -9,10 +9,17 @@ interface CardsListProps {
 
 export const CardsList = ({ className }: CardsListProps) => {
   const { posts } = useAppSelector((state) => state.postReducer)
+  const { onlyFavorite } = useAppSelector((state) => state.filterReducer)
+
+  const filteredPosts = posts.filter((post) => {
+    const matchedFavorite = onlyFavorite ? post.likePost : true
+
+    return matchedFavorite
+  })
 
   return (
     <div className={classNames(cls.CardsList, {}, [className])}>
-      {posts.map((post) => (
+      {filteredPosts.map((post) => (
         <Card key={post.id} post={post} />
       ))}
     </div>

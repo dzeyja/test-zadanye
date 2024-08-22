@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import postReducer from 'pages/MainPage/model/postSlice'
+import filterReducer from 'pages/MainPage/model/filterSlice'
 
 const rootState = combineReducers({
   postReducer,
+  filterReducer,
 })
 
 export const setupStore = () => {
