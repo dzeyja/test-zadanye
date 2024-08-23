@@ -8,6 +8,7 @@ import {
   fetchPostById,
 } from 'pages/MainPage/api/postsActionCreator'
 import { CommentList } from 'widgets/Comment'
+import { Link } from 'react-router-dom'
 
 interface CardDetailProps {
   clasName?: string
@@ -15,7 +16,7 @@ interface CardDetailProps {
 
 export const CardDetail = ({ clasName }: CardDetailProps) => {
   const { id } = useParams<{ id: string }>()
-  const { post } = useAppSelector((state) => state.postReducer)
+  const { post, isLoading } = useAppSelector((state) => state.postReducer)
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -26,20 +27,29 @@ export const CardDetail = ({ clasName }: CardDetailProps) => {
   }, [dispatch, id])
 
   return (
-    <div className={classNames(cls.CardDetail, {}, [clasName])}>
+    <>
+      <Link className={cls.backLink} to="/test-zadanye">
+        Назад к постам
+      </Link>
       <div className="container">
-        <div className={cls.postContent}>
-          <div className={cls.img}></div>
-          <div className={cls.textContent}>
-            <div className={cls.title}>{post.title}</div>
-            <div>{post.body}</div>
+        {isLoading ? (
+          <div className={cls.loader}>Загрузка поста...</div>
+        ) : (
+          <div className={classNames(cls.CardDetail, {}, [clasName])}>
+            <div className={cls.postContent}>
+              <div className={cls.img}></div>
+              <div className={cls.textContent}>
+                <div className={cls.title}>{post.title}</div>
+                <div>{post.body}</div>
+              </div>
+            </div>
+            <div className={cls.title}>Комментарий к посту:</div>
+            <div>
+              <CommentList />
+            </div>
           </div>
-        </div>
-        <div className={cls.title}>Комментарий к посту:</div>
-        <div>
-          <CommentList />
-        </div>
+        )}
       </div>
-    </div>
+    </>
   )
 }
